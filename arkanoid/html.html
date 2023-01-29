@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width,height=device-height,initial-scale=1"
+    >
+    <meta name="theme-color" content="#000000">
+    <link href="style.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="bg.css" type="text/css" rel="stylesheet" media="screen" />
+    <title>CODE:ME JS-EZ6 - Arkanoid</title>
+    
+    
+  </head><body>
+    <ul class="userBar">
+      <li>
+        <button id="exButton" ref="button" type="button">-------</button>
+      </li>
+      <li><a href="/muzyka">code.me</a></li>
+    </ul>
+
+    <game-arkanoid id="arkanoid-1" tabindex="-1">
+      <div class="panel">
+        <div>
+          Lifes:
+          <span ref="lifes"></span>
+        </div>
+        <div>
+          Score:
+          <span ref="score"></span>
+        </div>
+      </div>
+      <div class="arena" ref="arena">
+        <div class="bricks" ref="bricks">
+        </div>
+        <div class="paddle" ref="paddle"></div>
+        <div class="ball" ref="ball"></div>
+      </div>
+    </game-arkanoid>
+
+    <script src="game1.js"></script>
+  </body>
+
+</html>
+

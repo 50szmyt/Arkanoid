@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Gugi');
+
+html,body,div,p,h1,h2,h3,h4,h5,h6,
+ul,ol,li,dl,dt,dd,form,fieldset,caption,
+table,tr,td,th,address,blockquote,img {
+  margin:0;
+  padding:0;
+}
+
+img, fieldset {
+  border:none;
+}
+
+*, *:after, *:before {
+  box-sizing:border-box;
+  flex:1 0 auto;
+}
+
+hr {
+  display:none;
+}
+
+html, body {
+  height:100%;
+}
+
+body, button, input, table, textarea, select {
+  font:normal 1em/1.5 arial,helvetica,sans-serif;
+}
+
+body {
+  display:flex;
+  flex-direction:column;
+}
+
+html {
+  --nero-color: hsl(0 0% 8%); /*#252525;*/
+  --very-light-grey-color: hsl(0deg 0% 80%); /*#cccccc;*/
+  --white-color: hsl(0deg 0% 100%); /*#ffffff*/
+  --navy-blue-color: hsl(210deg 100% 40%);
+  --nobel-color: hsl(0deg 7% 64%); /*#999999*/
+  --free-speech-red-color: hsl(0deg 100% 38%); /*#cc0000;*/
+}
+
+game-arkanoid {
+  --base-color: var(--nero-color);
+  --paddle-color: var(--nobel-color);
+  --ball-color: var(--free-speech-red-color);
+  --brick-color: var(--very-light-grey-color);
+
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 40rem;
+  top: 50%;
+  left: 50%;
+  outline: none;
+  user-select: none;
+  border: 2px solid var(--navy-blue-color);
+}
+
+game-arkanoid > .arena {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+
+game-arkanoid .arena > div {
+  position: absolute;
+}
+
+game-arkanoid .bricks {
+  top: 3em;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+game-arkanoid .bricks > div {
+  max-width: 4.25em;
+  width: 100%;
+  height: 1.125em;
+  display: inline-block;
+  background-color: var(--very-light-grey-color);
+  border-radius: 3px;
+}
+
+game-arkanoid .bricks > .hide {
+  visibility: hidden;
+}
+
+game-arkanoid .paddle {
+  bottom: 1.5em;
+  left: 50%;
+  width: 7.75em;
+  aspect-ratio: 31 / 3;
+  background-color: var(--paddle-color);
+  border-radius: 3px;
+  cursor: grab;
+}
+
+game-arkanoid .ball {
+  width: 1.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--ball-color);
+}
+
+game-arkanoid .panel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--base-color);
+  font-family: 'Gugi', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1em;
+  color: var(--white-color);
+  padding: 0.5em;
+}
+
+game-arkanoid .panel > div {
+  display: inline-flex;
+  gap: 0.5em;
+}
+
+game-arkanoid .panel > div > span {
+  display: inline-block;
+}
+
+game-arkanoid .panel > div > span[data-score]::before {
+  content: attr(data-score);
+}
+
+game-arkanoid .panel > div > span[data-lifes]::before {
+  content: attr(data-lifes);
+}
+
+game-arkanoid .panel > :last-child {
+  flex-grow: 0;
+}
+
+
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 12.5rem;
+  aspect-ratio: 1 / 1;
+
+  background-color:dimgrey;
+}
+
+#modal:target {
+  display: flex;
+}
+
+a {
+  color: #fff;
+}
+
+.brick {
+  --brick-color: #ccc;
+  background-color: var(--brick-color)
+}
+
+game-arkanoid .bricks > div[data-brickscore="3"] {
+  background-color: darkred;
+}
+
+game-arkanoid .bricks > div[data-brickscore="5"] {
+  background-color: #369;
+}
+
