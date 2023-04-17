@@ -57,6 +57,7 @@ let deltaY=1;
 let deltaX=1;
 
 let a=0;
+let b=0;
 let fun1 = function()
 {
     if(a==0)
@@ -70,6 +71,10 @@ let fun1 = function()
         
             let tout = setInterval( function()
             {
+                if(b==1)
+                {
+                    clearInterval(tout);
+                }
                 scoreElement.innerHTML=store.score;
                 lifesElement.innerHTML=store.lifes;
 
@@ -167,7 +172,12 @@ let fun1 = function()
                     
                     deltaY*=-1; 
                 }
-            },15
+                if(store.score==r)
+                {
+                    alert("wygrana")
+                    clearInterval(tout);
+                }
+            },5
             );
     }        
 }
@@ -185,8 +195,10 @@ const onMove= function (e)
 
 paddleElement.addEventListener('mousedown',function(e)
 {
+    b=0;
     document.addEventListener('mousemove', onMove);  
-    document.addEventListener('mousedown', fun1())  
+    document.addEventListener('mousedown', fun1());
+    
 })
 
 
@@ -196,19 +208,11 @@ document.addEventListener('mouseup',function()
     document.removeEventListener('mousemove', onMove);
 })
 
-
-
-
-
-
-
-
-
-
 const fragment = document.createDocumentFragment();
 const brick=`<div class="brick"></div>`;
 const template = document.createElement('template');
-template.innerHTML= brick.repeat(34);
+let r=30;
+template.innerHTML= brick.repeat(r);
 bricksElement.appendChild(template.content);
 
 
@@ -216,28 +220,32 @@ bricksElement.appendChild(template.content);
 document.getElementById("exButton").addEventListener("click",function()
 {
     center();
+    b=1;
 });
+
+
+
+const bhide=document.getElementsByClassName("hide")
+
+
 
 
 document.getElementById("exButton1").addEventListener("click",function()
 
 {
-    if(a==1)
-    {
+    b=1;
     store.lifes=2;
     store.score=0;
     center();
     a=0;
-    //clearInterval(tout);
     paddleElement.style.backgroundColor="rgba(255,255,255)";
-    //const bhide = document.getElementsByClassName("hide");
-    
+    for (let i=0; i<r; i++) 
+    {
+        bhide[0].classList.remove("hide");
+        
     }
-    
+
 });
-//zmiana koloru paddle po wciśnięciu
-// powrót do koloru wciśnieciu restart
-//przywrócenie cegiełek po restarcie.
 //centrowanie kursora
 
 
