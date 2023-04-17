@@ -38,7 +38,7 @@ html {
   --very-light-grey-color: hsl(0deg 0% 80%); /*#cccccc;*/
   --white-color: hsl(0deg 0% 100%); /*#ffffff*/
   --navy-blue-color: hsl(210deg 100% 40%);
-  --nobel-color: hsl(0deg 7% 64%); /*#999999*/
+  --nobel-color: hsl(0, 100%, 99%); /*#999999*/
   --free-speech-red-color: hsl(0deg 100% 38%); /*#cc0000;*/
 }
 
